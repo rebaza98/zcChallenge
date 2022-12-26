@@ -1,0 +1,52 @@
+<template>
+    <template if:false={showAccountContactForm} >
+        <div id="listcontactid" >
+            <lightning-card title="Contacts Account Component">
+                <div class="slds-grid">
+                    <div class="slds-m-around_medium">
+                        <lightning-button label="New Contact" onclick={newContactHandler}></lightning-button>
+                    </div>
+                </div>
+                    <div class="slds-var-p-around_medium">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={contactList} for:item="contact">
+                                    <tr key={contact.Id}>
+                                        <td>{contact.Name}</td>
+                                        <td>{contact.Phone}</td>
+                                        <td>{contact.Email}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="slds-grid">
+                        <div class="slds-m-around_medium">
+                            <lightning-button label="Previous" onclick={handlePreviousPage}></lightning-button>
+                        </div>
+                        <div class="slds-m-around_medium">
+                            <lightning-button label="Next" onclick={handleNextPage}></lightning-button>
+                        </div>
+                    </div> -->
+            </lightning-card>
+        </div>
+        
+    </template>
+    
+    <template if:true={showAccountContactForm} >
+        <div class="slds-m-around_medium">
+            <lightning-card title="Account Contact Compact Form" >
+                <c-custom-compact-contact-account-form idwork={recordId} oncancel={cancelHandler} onsuccess={successHandler} >
+                
+                </c-custom-compact-contact-account-form>
+            </lightning-card>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <template if:true={showSpinner} >
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    
+    <div class="slds-m-around_medium">
+        <div class="slds-form-element__control">
+                <lightning-input  data-field="firstName" required="true" label="First Name" onchange={handleFirstNameChange} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-input data-field="lastName" required="true" label="Last Name" onchange={handleLastNameChange} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-input label="Title" onchange={handleTitleChange} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-input type="number" label="Phone" onchange={handlePhoneChange} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-input  label="Email" onchange={handleEmailChange} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-input  label="Account Name" value={idwork} class="slds-m-bottom_x-small slds-hidden"></lightning-input>
+                <div class="slds-modal__footer" onclick={footerHandler} >
+                    <lightning-button class="slds-p-horizontal_x-small" label="Create Contact" variant="brand" onclick={createContactAccount}></lightning-button>
+                    <lightning-button class="slds-p-horizontal_x-small" label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+                </div>
+        </div>
+    </div>
+</template>
