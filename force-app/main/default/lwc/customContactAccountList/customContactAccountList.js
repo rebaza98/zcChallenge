@@ -35,12 +35,9 @@ export default class CustomContactAccountList extends LightningElement {
 
    //NEW CONTACT
    newContactHandler(){
-    console.log("OBJECT ) ", CONTACT_OBJECT)
-    console.log("API NAME = ", this.objectApiName)
     this.showAccountContactForm = true
    }
    successHandler(event){
-    console.log("SUCCESS SHLU TRIGGER")
     refreshApex(this.wiredContactResult)
     this.showAccountContactForm = false;
     this.dispatchEvent(
